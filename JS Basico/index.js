@@ -222,3 +222,37 @@ console.log(null == undefined); // true (são considerados "iguais" neste contex
 // Comparação estrita (===): Compara valor E tipo, sem conversão implícita
 console.log(10 === "10"); // false (tipos diferentes)
 console.log(0 === false); // false (tipos diferentes)
+
+// Template literals: Usam backticks (`)
+let nome = "Maria";
+let idade = 28;
+
+// Antes: Concatenação com '+' (menos legível)
+let saudacaoAntiga = "Olá, meu nome é " + nome + " e tenho " + idade + " anos.";
+console.log(saudacaoAntiga);
+
+// Agora: Template literals (mais legível com interpolação de variáveis ${})
+let saudacaoNova = `Olá, meu nome é ${nome} e tenho ${idade} anos.`;
+console.log(saudacaoNova);
+
+// Suporte a múltiplas linhas sem '\n'
+let textoMultilinha = `
+    Este é um texto
+    com múltiplas linhas.
+    Fácil de ler!
+`;
+console.log(textoMultilinha);
+
+// Expressões dentro dos template literals
+let a = 10;
+let b = 5;
+let resultado = `A soma de ${a} e ${b} é ${a + b}.`;
+console.log(resultado); // Saída: A soma de 10 e 5 é 15.
+
+// Chamada de função dentro dos template literals
+function capitalizar(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+let produto = "banana";
+let frase = `Eu gosto de ${capitalizar(produto)}.`;
+console.log(frase); // Saída: Eu gosto de Banana.
