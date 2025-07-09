@@ -89,3 +89,24 @@ let canEdit = true;
 for (let i = 0; i < 5; i++) {
     // ...
 }
+
+// Exemplo de Hoisting com 'var'
+console.log(variavelVar); // undefined (variável é "içada" - hoisted - mas sem valor)
+var variavelVar = "Eu sou uma variável var";
+console.log(variavelVar); // "Eu sou uma variável var"
+
+// Exemplo de Hoisting com 'function'
+saudar(); // "Olá do Hoisting de função!"
+
+function saudar() {
+    console.log("Olá do Hoisting de função!");
+}
+
+// Exemplo: 'let' e 'const' são hoisted, mas entram na Temporal Dead Zone (TDZ)
+// console.log(variavelLet); // Erro: ReferenceError (TDZ - não pode ser acessada antes da declaração)
+let variavelLet = "Eu sou uma variável let";
+console.log(variavelLet);
+
+// console.log(variavelConst); // Erro: ReferenceError (TDZ)
+const variavelConst = "Eu sou uma constante const";
+console.log(variavelConst);
