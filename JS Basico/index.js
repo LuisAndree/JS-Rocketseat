@@ -67,3 +67,25 @@ console.log(meuContador()); // Saída: 2
 
 const outroContador = criarContador();
 console.log(outroContador()); // Saída: 1 (novo escopo para 'contador')
+
+// Good practice: use camelCase for variables
+let userName = "Maria";
+let productPrice = 29.99;
+
+// Use descriptive names in English
+// Bad: let qty = 10;
+let orderQuantity = 10;
+
+// Constants (unchanging values): use UPPER_SNAKE_CASE
+const MAX_ATTEMPTS = 3;
+const API_URL = "https://api.example.com";
+
+// Booleans: use 'is', 'has', 'can' prefixes
+let isActive = true;
+let hasPermission = false;
+let canEdit = true;
+
+// Loop counters: short, single-letter is okay (e.g., 'i' for index)
+for (let i = 0; i < 5; i++) {
+    // ...
+}
