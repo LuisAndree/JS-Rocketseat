@@ -110,3 +110,27 @@ console.log(variavelLet);
 // console.log(variavelConst); // Erro: ReferenceError (TDZ)
 const variavelConst = "Eu sou uma constante const";
 console.log(variavelConst);
+
+// 'var': Escopo de função ou global, pode ser redeclarada e reatribuída. Sofre hoisting.
+var nomeAntigo = "João";
+var nomeAntigo = "Pedro"; // Redeclaração OK
+nomeAntigo = "Maria";   // Reatribuição OK
+console.log(nomeAntigo); // Saída: Maria
+
+// 'let': Escopo de bloco, não pode ser redeclarada, mas pode ser reatribuída. Sofre hoisting (mas entra na TDZ).
+let idade = 30;
+// let idade = 31; // Erro! Já foi declarada
+idade = 31;        // Reatribuição OK
+console.log(idade); // Saída: 31
+
+// 'const': Escopo de bloco, não pode ser redeclarada nem reatribuída (é uma constante). Sofre hoisting (mas entra na TDZ).
+const PI = 3.14;
+// const PI = 3.14159; // Erro! Já foi declarada
+// PI = 3.14159;       // Erro! Não pode ser reatribuída
+console.log(PI); // Saída: 3.14
+
+// Com 'const' em objetos/arrays, o conteúdo pode mudar, mas a referência não.
+const pessoa = { nome: "Ana" };
+pessoa.nome = "Paula"; // Modificar propriedade OK
+console.log(pessoa); // Saída: { nome: "Paula" }
+// pessoa = { nome: "Carlos" }; // Erro! Não pode reatribuir a variável 'pessoa'
