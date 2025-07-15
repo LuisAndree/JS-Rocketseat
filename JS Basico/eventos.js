@@ -61,8 +61,85 @@ listaItens.addEventListener("click", (e) => {
     }
 });
 
-// Outros eventos comuns:
-// 'keydown', 'keyup' (teclado)
-// 'submit' (formulários)
-// 'load' (quando a página/recurso é carregado)
-// 'scroll' (rolagem da página)
+// 6. Eventos de Teclado (Keyboard Events)
+const inputTexto = document.querySelector("#inputTexto"); // Supondo <input id="inputTexto">
+
+// 'keydown': Dispara quando uma tecla é pressionada (e segurada)
+inputTexto.addEventListener("keydown", (e) => {
+    console.log(`Tecla pressionada (keydown): ${e.key}`);
+    // e.key: o valor da tecla (ex: "Enter", "a", "Shift")
+    // e.code: o código da tecla (ex: "KeyA", "Enter")
+});
+
+// 'keyup': Dispara quando uma tecla é liberada
+inputTexto.addEventListener("keyup", (e) => {
+    console.log(`Tecla liberada (keyup): ${e.key}`);
+    if (e.key === "Enter") {
+        console.log("Você pressionou Enter!");
+    }
+});
+
+// 'keypress': Dispara quando uma tecla que produz um caractere é pressionada (obsoleto, prefira keydown/keyup)
+// inputTexto.addEventListener("keypress", (e) => {
+//     console.log(`Tecla pressionada (keypress): ${e.key}`);
+// });
+
+
+// 7. Eventos de Formulário (Form Events)
+const meuForm = document.querySelector("#meuForm"); // Supondo <form id="meuForm">
+
+// 'submit': Dispara quando um formulário é submetido
+meuForm.addEventListener("submit", (e) => {
+    e.preventDefault(); // MUITO IMPORTANTE: Previne o recarregamento da página
+    console.log("Formulário submetido!");
+    // Aqui você coletaria os dados do formulário e os enviaria (ex: via Fetch API)
+});
+
+// 'focus': Dispara quando um elemento (input, textarea, etc.) recebe foco
+inputTexto.addEventListener("focus", () => {
+    inputTexto.style.backgroundColor = "lightyellow";
+    console.log("Input em foco!");
+});
+
+// 'blur': Dispara quando um elemento perde o foco
+inputTexto.addEventListener("blur", () => {
+    inputTexto.style.backgroundColor = ""; // Volta ao normal
+    console.log("Input perdeu o foco!");
+});
+
+// 'change': Dispara quando o valor de um <input>, <select> ou <textarea> muda E o elemento perde o foco.
+const selectOpcoes = document.querySelector("#selectOpcoes"); // Supondo <select id="selectOpcoes">
+if (selectOpcoes) {
+    selectOpcoes.addEventListener("change", (e) => {
+        console.log(`Opção selecionada: ${e.target.value}`);
+    });
+}
+
+// 8. Eventos de Carregamento/Redimensionamento (Load/Resize Events)
+
+// 'DOMContentLoaded': Dispara quando o HTML foi completamente carregado e analisado,
+// sem esperar por stylesheets, imagens, etc. Ideal para manipular o DOM.
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM completamente carregado e analisado!");
+    // Código para manipular o DOM com segurança deve vir aqui.
+});
+
+// 'load': Dispara quando a página INTEIRA foi carregada, incluindo todos os recursos (imagens, stylesheets).
+window.addEventListener("load", () => {
+    console.log("Página completamente carregada (incluindo recursos)!");
+});
+
+// 'resize': Dispara quando a janela do navegador é redimensionada
+window.addEventListener("resize", () => {
+    console.log(`Janela redimensionada para: ${window.innerWidth}x${window.innerHeight}`);
+});
+
+// 'scroll': Dispara quando o usuário rola a barra de rolagem
+window.addEventListener("scroll", () => {
+    // console.log("Página sendo rolada!");
+    if (window.scrollY > 200) { // Exemplo: detecta se rolou 200px para baixo
+        document.body.style.backgroundColor = "lightblue";
+    } else {
+        document.body.style.backgroundColor = "";
+    }
+});
