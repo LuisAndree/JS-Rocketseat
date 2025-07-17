@@ -143,3 +143,47 @@ window.addEventListener("scroll", () => {
         document.body.style.backgroundColor = "";
     }
 });
+
+// O RegExr (regexr.com) é uma ferramenta online interativa para testar e aprender Regex.
+
+// No RegExr, você tem duas áreas principais:
+
+// 1. Área de Expressão Regular (Regex):
+//    Você digita seu padrão de busca aqui.
+const regexExemplo = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g;
+// Comentário para RegExr: Este Regex busca por endereços de email.
+// g: flag global (encontra todas as ocorrências)
+// \b: limite de palavra
+// [A-Za-z0-9._%+-]+: caracteres válidos antes do @
+// @: o símbolo de arroba
+// [A-Za-z0-9.-]+: caracteres válidos depois do @ e antes do domínio
+// \.: um ponto (precisa de escape)
+// [A-Z|a-z]{2,}: 2 ou mais letras para o TLD (ex: com, org, br)
+
+// 2. Área de Texto de Teste:
+//    Você cola ou digita o texto onde o Regex será aplicado.
+const textoExemplo = `
+    Entre em contato com suporte@minhaempresa.com.br.
+    Meu email pessoal é meu.nome@dominio.org.
+    Ou ligue para (11) 98765-4321.
+`;
+
+// No RegExr, o código JS abaixo é o que você visualiza (resultados), não o que você digita lá.
+// Ele mostra como você usaria o Regex em JavaScript.
+
+const emailsEncontrados = textoExemplo.match(regexExemplo);
+console.log(emailsEncontrados);
+/*
+No RegExr, você veria destacado:
+- suporte@minhaempresa.com.br
+- meu.nome@dominio.org
+
+E na seção de resultados, algo como:
+[
+  "suporte@minhaempresa.com.br",
+  "meu.nome@dominio.org"
+]
+*/
+
+// O RegExr também fornece explicações detalhadas de cada parte do seu Regex,
+// e opções para substituição e outras flags.
