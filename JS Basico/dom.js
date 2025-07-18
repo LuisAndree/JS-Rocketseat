@@ -105,3 +105,44 @@ setTimeout(() => {
         console.log("Item removido!");
     }
 }, 2000);
+
+// Manipulando o Valor de um Input HTML com JavaScript
+
+// 1. Selecionar o elemento input
+const meuInputTexto = document.querySelector("#meuInput"); // Supondo <input type="text" id="meuInput">
+const botaoSalvar = document.querySelector("#botaoSalvar"); // Supondo <button id="botaoSalvar">
+
+// 2. Obter o valor atual do input (usando .value)
+// Geralmente feito em resposta a um evento (ex: clique no botão, mudança no input)
+botaoSalvar.addEventListener("click", () => {
+    const valorDigitado = meuInputTexto.value; // Pega o que está no campo no momento do clique
+    console.log(`Valor digitado: "${valorDigitado}"`);
+
+    // Exemplo de validação simples
+    if (valorDigitado.trim() === "") { // .trim() remove espaços em branco extras
+        alert("O campo não pode estar vazio!");
+    } else {
+        alert(`Você salvou: ${valorDigitado}`);
+        // Aqui você enviaria o valor para um servidor, processaria, etc.
+    }
+});
+
+// 3. Definir (alterar) o valor do input programaticamente
+// Útil para preencher campos, limpar após submissão, etc.
+
+// Definir um valor inicial
+meuInputTexto.value = "Valor padrão";
+
+// Limpar o input após um tempo (ex: 3 segundos)
+setTimeout(() => {
+    meuInputTexto.value = ""; // Define o valor como uma string vazia
+    console.log("Input limpo após 3 segundos.");
+}, 3000);
+
+// 4. Ouvir mudanças em tempo real (evento 'input')
+// Dispara a cada tecla digitada ou alteração no valor do input
+meuInputTexto.addEventListener("input", () => {
+    const valorAtual = meuInputTexto.value;
+    // Exibe o valor em um parágrafo enquanto o usuário digita
+    document.querySelector("#displayValor").textContent = `Digitando: ${valorAtual}`;
+});
